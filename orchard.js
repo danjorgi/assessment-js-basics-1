@@ -49,9 +49,13 @@ const pinkPrice = .55
     Log `totalAcres` to the console.
 */
 
-// CODE HERE
+let totalAcres = 0
+for (let i = 0; i < fujiAcres.length; i++) {
+    totalAcres += fujiAcres[i] + galaAcres[i] + pinkAcres[i]
+}
+console.log(totalAcres);
 
-
+//"I gave the totalAcres variable a value of 0 to start and then used the for loop to change the value of the variable to the sum of all 3 apple arrays."
 
 
 
@@ -67,10 +71,12 @@ const pinkPrice = .55
     Log `averageDailyAcres` to the console.
 */
 
-// CODE HERE
+let daysInWeek = fujiAcres.length;
+let averageDailyAcres = totalAcres / daysInWeek;
 
+console.log(averageDailyAcres)
 
-
+//"I created a variable to represent how many days were in the week and then used that to create another variable that had the total number of Acres from the previous problem divided by the number of days in the week."
 
 
 // PROBLEM 3
@@ -105,9 +111,14 @@ const pinkPrice = .55
 let acresLeft = 174 
 let days = 0
 
-// CODE HERE
+while (acresLeft > 0) {
+    days++;
+    acresLeft -= averageDailyAcres;
+}
 
+console.log(days)
 
+//"I added a day to each loop while simultaneously subtracting the average acres picked from the amount of acres that were left until it reached 0."
 
 // PROBLEM 4
 
@@ -135,16 +146,24 @@ let days = 0
 
 // CODE HERE
 
-// let fujiTons =
-// let galaTons =
-// let pinkTons =
+let fujiTons = [];
+let galaTons = [];
+let pinkTons = [];
 
+let tonsPerAcre = 6.5
 
+for (let i = 0; i < fujiAcres.length; i++) {
+    fujiTons.push(fujiAcres[i] * tonsPerAcre)
+    galaTons.push(galaAcres[i] * tonsPerAcre)
+    pinkTons.push(pinkAcres[i] * tonsPerAcre)
+}
+ console.log(fujiTons);
+ console.log(galaTons);
+ console.log(pinkTons);
 
+//"I created a variable for the tons per acre value, then did a for loop of the original arrays then used the .push function to create new arrays that multiplied the tonsPerAcre into the amount of acres harvested per day."
 
-
-
-// PROBLEM 5
+ // PROBLEM 5
 
 /*
     Next, calculate the total number of 
@@ -162,14 +181,22 @@ let days = 0
 
 // CODE HERE 
 
-// let fujiPounds =
-// let galaPounds =
-// let pinkPounds =
+let fujiPounds = 0
+let galaPounds = 0
+let pinkPounds = 0
 
+let lbsPerTon = 2000
 
+for (let i = 0; i < fujiTons.length; i++) {
+    fujiPounds += (fujiTons[i] * lbsPerTon)
+    galaPounds += (galaTons[i] * lbsPerTon)
+    pinkPounds += (pinkTons[i] * lbsPerTon)
+}
+console.log(fujiPounds);
+console.log(galaPounds);
+console.log(pinkPounds);
 
-
-
+//"I created a variable for lbs per ton and then used a for loop to add together the tons from the previous arrays and multiplying it by the lbsPerTon variable, while also assigning the new value to the pounds variables."
 
 // PROBLEM 6
 
@@ -186,17 +213,20 @@ let days = 0
     Log each of the profits to the 
     console. 
 */
-
-// CODE HERE
-
-// let fujiProfit =
-// let galaProfit =
-// let pinkProfit =
+// const fujiPrice = .89 
+// const galaPrice = .64
+// const pinkPrice = .55
 
 
+let fujiProfit = fujiPounds * (fujiPrice / 1.00);
+let galaProfit = galaPounds * (galaPrice / 1.00);
+let pinkProfit = pinkPounds * (pinkPrice / 1.00);
 
+console.log(fujiProfit);
+console.log(galaProfit);
+console.log(pinkProfit);
 
-
+//"I took the pounds of each apple and multiplied them by the price divided by 1.00 to get the amount of profits in dollars."
 
 // PROBLEM 7
 
@@ -208,4 +238,7 @@ let days = 0
     Log `totalProfit` to the console.
 */
 
-// CODE HERE
+let totalProfit = fujiProfit + galaProfit + pinkProfit;
+console.log(totalProfit)
+
+//"Added all the profit variables together to create the totalProfit variable."
